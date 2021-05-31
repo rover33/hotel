@@ -7,9 +7,9 @@ export const HotelContext = createContext();
 export const HotelProvider  = props => {
 
    // states to be passed to different components
-    const [query, setQuery] = useState("");
+    const [queryLookUpArr, setQueryLookUpArr] = useState([]);
+    const [ query, setQuery ] = useState("");
     const [starSort, setStarSort ] = useState("");
-    const [score, setScore ] = useState("");
     const [repos, setRepos] = useState([]);
     const [language, setLanguage] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -19,11 +19,14 @@ export const HotelProvider  = props => {
     useEffect(() => {
       (async () => {
         const repos = await axios.get(
-          `https://api.github.com/search/repositories?q=hello-world`
+          `https://api.github.com/search/repositories?q=${query}`
         );
         setRepos(repos.data.items);
+        setQueryLookUpArr(repos.data.items)
+        setQuery("")
       })();
     }, []);
+
 
     // useEffect(() => {
     //   setIsLoading(true)
@@ -47,7 +50,7 @@ export const HotelProvider  = props => {
 
     console.log(repos)
     return (
-        <HotelContext.Provider value={[repos, setRepos, language, setLanguage, query, setQuery, starSort, setStarSort, score, setScore]}>
+        <HotelContext.Provider value={[repos, setRepos, language, setLanguage, queryLookUpArr, setQueryLookUpArr, query, setQuery, starSort, setStarSort]}>
             {props.children}
         </HotelContext.Provider>
     )
