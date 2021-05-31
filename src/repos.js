@@ -4,17 +4,17 @@ import { HotelContext } from "./Context/context";
 
 
 let Repos = () => {
-  const [items, setItems] = useContext(HotelContext)
+  const [repos, setRepos] = useContext(HotelContext)
+  
 
     let renderRepos = () => {
       return(
-          console.log("hi", items)
-        // items.map(repo => (
+          console.log("hi", repos.items)
+        // repos.items.map(repo => (
         //     <tr key={repo.id} className="repoList" >
         //         <td>{repo.name}</td>
         //         <td>{repo.language}</td>
         //         <td>{repo.stargazers_count}</td>
-        //         <td>{repo.score}</td>
         //     </tr>
         // ))
       )
@@ -29,7 +29,6 @@ let Repos = () => {
                 <th>Name</th>
                 <th>Language</th>
                 <th>Stars</th>
-                <th>Score</th>
             </tr>
             {renderRepos()}
             </tbody>

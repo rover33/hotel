@@ -10,23 +10,23 @@ export const HotelProvider  = props => {
     const [query, setQuery] = useState("");
     const [starSort, setStarSort ] = useState("");
     const [score, setScore ] = useState("");
-    const [items, setItems] = useState([]);
+    const [repos, setRepos] = useState([]);
     const [language, setLanguage] = useState("");
     const [isLoading, setIsLoading] = useState(false);
   
     // &sort=${stargazers_count}&order=desc
   
-    useEffect(async () => {
+    useEffect(() => {
       setIsLoading(true)
       fetch(
         `https://api.github.com/search/repositories?q=hello-world`, {
         })
         .then(res => res.json())
-        .then(items => {
+        .then(repos => {
           // console.log(items)
             //sorted Alphabetically
           // const sortData = items.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1))
-          setItems(items)
+          setRepos(repos)
           // setLanguage("")
           // setStarSort("")
           // setIsLoading(false)
@@ -36,11 +36,9 @@ export const HotelProvider  = props => {
         })
     }, []);
 
-    // console.log(items.items)
+    console.log(repos)
     return (
-        <HotelContext.Provider value={[
-            query, setQuery, starSort, setStarSort, score, setScore, items, setItems, language, setLanguage
-            ]}>
+        <HotelContext.Provider value={[repos, setRepos, language, setLanguage, query, setQuery, starSort, setStarSort, score, setScore]}>
             {props.children}
         </HotelContext.Provider>
     )
