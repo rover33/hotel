@@ -8,9 +8,9 @@ export const HotelProvider  = props => {
 
    // states to be passed to different components
     const [queryLookUpArr, setQueryLookUpArr] = useState([]);
+    const [repos, setRepos] = useState([]);
     const [ query, setQuery ] = useState("");
     const [starSort, setStarSort ] = useState("");
-    const [repos, setRepos] = useState([]);
     const [language, setLanguage] = useState("");
     const [isLoading, setIsLoading] = useState(false);
   
