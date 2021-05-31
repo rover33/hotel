@@ -1,12 +1,12 @@
 import logo from './logo.svg';
-import Repo  from './repos';
+import Repos from './repos';
 import {HoteltProvider} from './Context/context'
 
 function App() {
   return (
     <HoteltProvider>
       <div className="App">
-        <Repo />
+        <Repos />
       </div>
     </HoteltProvider>
   );

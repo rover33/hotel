@@ -3,7 +3,7 @@ import { HotelContext } from "./Context/context";
 
 
 
-let Repo = () => {
+let Repos = () => {
   const [items, setItems] = useContext(HotelContext)
 
     let renderRepos = () => {
@@ -39,4 +39,4 @@ let Repo = () => {
   };
 
 
-export default Repo;
+export default Repos;
