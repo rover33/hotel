@@ -4,7 +4,7 @@ import axios from 'axios'
 export const HotelContext = createContext();
 
 
-export const HoteltProvider  = props => {
+export const HotelProvider  = props => {
 
    // states to be passed to different components
     const [query, setQuery] = useState("");
@@ -36,7 +36,7 @@ export const HoteltProvider  = props => {
         })
     }, []);
 
-    console.log(items)
+    // console.log(items.items)
     return (
         <HotelContext.Provider value={[
             query, setQuery, starSort, setStarSort, score, setScore, items, setItems, language, setLanguage
