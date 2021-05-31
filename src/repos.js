@@ -9,14 +9,14 @@ let Repos = () => {
 
     let renderRepos = () => {
       return(
-          console.log("hi", repos.items)
-        // repos.items.map(repo => (
-        //     <tr key={repo.id} className="repoList" >
-        //         <td>{repo.name}</td>
-        //         <td>{repo.language}</td>
-        //         <td>{repo.stargazers_count}</td>
-        //     </tr>
-        // ))
+        //   console.log("hi", repos)
+        repos.map(repo => (
+            <tr key={repo.id} className="repoList" >
+                <td>{repo.name}</td>
+                <td>{repo.language}</td>
+                <td>{repo.stargazers_count}</td>
+            </tr>
+        ))
       )
     }
 
