@@ -1,5 +1,6 @@
 import {  useContext } from "react";
 import { HotelContext } from "./Context/context";
+import "../src/repos.css"
 
 
 
@@ -10,7 +11,7 @@ let Repos = () => {
     let renderRepos = () => {
       return(
         repos.map(repo => (
-            <tr key={repo.id} className="repoList" >
+            <tr key={repo.id} className="listResults">
                 <td>{repo.name}</td>
                 <td>{repo.language}</td>
                 <td>{repo.stargazers_count}</td>
