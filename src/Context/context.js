@@ -10,47 +10,13 @@ export const HotelProvider  = props => {
     const [queryLookUpArr, setQueryLookUpArr] = useState([]);
     const [repos, setRepos] = useState([]);
     const [ query, setQuery ] = useState("");
-    const [starSort, setStarSort ] = useState("");
-    const [language, setLanguage] = useState("");
+    const [ sortRepos, setSortRepos ] = useState("");
+    const [ filterLanguage, setFilterLanguage ] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-  
-    // &sort=${stargazers_count}&order=desc
-  
-    useEffect(() => {
-      (async () => {
-        const repos = await axios.get(
-          `https://api.github.com/search/repositories?q=${query}`
-        );
-        setRepos(repos.data.items);
-        setQueryLookUpArr(repos.data.items)
-        setQuery("")
-      })();
-    }, []);
 
-
-    // useEffect(() => {
-    //   setIsLoading(true)
-    //   fetch(
-    //     `https://api.github.com/search/repositories?q=hello-world`, {
-    //     })
-    //     .then(res => res.json())
-    //     .then(repos => {
-    //       // console.log(items)
-    //         //sorted Alphabetically
-    //       // const sortData = items.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1))
-    //       setRepos(repos)
-    //       // setLanguage("")
-    //       // setStarSort("")
-    //       // setIsLoading(false)
-    //     })
-    //     .catch(() => {
-    //       console.log("stop it");
-    //     })
-    // }, []);
-
-    console.log(repos)
+    // console.log(repos)
     return (
-        <HotelContext.Provider value={[repos, setRepos, language, setLanguage, queryLookUpArr, setQueryLookUpArr, query, setQuery, starSort, setStarSort]}>
+        <HotelContext.Provider value={[repos, setRepos, filterLanguage, setFilterLanguage, queryLookUpArr, setQueryLookUpArr, query, setQuery, sortRepos, setSortRepos]}>
             {props.children}
         </HotelContext.Provider>
     )
